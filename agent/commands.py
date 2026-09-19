@@ -308,7 +308,8 @@ def run_stage_check(agent: Agent, verbose: bool = False) -> str:
         return f"Ошибка проверки условия: {exc}"
     if result is None:
         return (
-            "Проверка недоступна (нет этапов, задача на паузе или завершена)."
+            "Проверка недоступна (нет этапов, нет последнего обмена, задача на паузе "
+            "или завершена)."
             if verbose
             else ""
         )
