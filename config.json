@@ -1,0 +1,31 @@
+{
+  "default_agent": "assistant",
+  "providers": {
+    "deepseek": { "type": "openai_compatible" },
+    "groq":     { "type": "openai_compatible" }
+  },
+  "agents": {
+    "assistant": {
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "endpoint": "https://api.deepseek.com",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "system_prompt": "Ты полезный ассистент. При конфликте информации следуй более приоритетному слою: profile > long-term > working > short-term.",
+      "temperature": 0.7,
+      "max_tokens": 1024,
+      "top_p": 1.0,
+      "top_k": 50,
+      "memory_dir": "memory/assistant"
+    },
+    "coder": {
+      "provider": "deepseek",
+      "model": "deepseek-reasoner",
+      "endpoint": "https://api.deepseek.com",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "system_prompt": "Ты senior Python-разработчик. При конфликте информации следуй более приоритетному слою: profile > long-term > working > short-term.",
+      "temperature": 0.2,
+      "max_tokens": 2048,
+      "memory_dir": "memory/coder"
+    }
+  }
+}
